@@ -23,6 +23,7 @@ else:
 
     df = pd.read_csv(merge_file, header=None)
     df.columns = ["ID", "Pose", "Smina", "Gnina"]
+    df = df.dropna()
 
     for num_model in num_models:
 
