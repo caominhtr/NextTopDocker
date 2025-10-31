@@ -33,6 +33,22 @@ Example of folder entry with PDB ID 1A28 in NextTopDocker dataset:
 
 This code was tested with Python 3.12.12 on Ubuntu 24.04.3 LTS
 
+System setup
+```
+sudo apt update -y
+sudo apt upgrade -y
+
+#You’ll need an Ubuntu 24.04 system (or similar) with CUDA installed to run GNINA 1.3
+
+sudo apt update
+sudo apt install nvidia-cuda-toolkit
+
+#Check
+nvidia-smi
+#Or
+nvcc-version
+```
+Installation of NextTopDocker environment
 ```
 git clone https://github.com/caominhtr/NextTopDocker.git
 cd NextTopDocker
