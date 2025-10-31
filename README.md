@@ -93,6 +93,7 @@ example/
 ### Step 2: Perform docking and pose selection with LogReg (x%) model
 Redocking or docking new ligands can be easily performed as follows:
 ```
+cd ~/NextTopDocker
 chmod +x ./*
 ./NextTopDocker.sh
 ```
