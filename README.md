@@ -40,7 +40,6 @@ sudo apt upgrade -y
 
 #You’ll need an Ubuntu 24.04 system (or similar) with CUDA installed to run GNINA 1.3
 
-sudo apt update
 sudo apt install nvidia-cuda-toolkit
 
 #Check
