@@ -2,7 +2,7 @@
 
 NextTopDocker, a largest-scale, up-to-date (as of May 2025), and fully open-access data set of 19,239 PDB-derived protein-ligand complexes, split into 14,038 training and 5,201 test entries via a strict cold-ligand strategy, together with nine ligand-similarity-aware training subsets, provides a challenging, diverse, and reproducible foundation for evaluating pose generation and docking performance. 
 
-On this benchmark dataset, our simple logistic regression models, **LogReg (x%)**, trained on Smina and GNINA 1.3 scores from chemically dissimilar ligands and applied to Smina-generated poses, achieved docking power comparable to or exceeding that of the four SOTA end-to-end ML docking tools (DeepDock, Interformer, SurfDock, and Uni-Mol Docking v.2).
+On this benchmark dataset, our simple logistic regression models, **LogReg (x%)**, trained on [Smina](https://pubs.acs.org/doi/10.1021/ci300604z) and [GNINA 1.3](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-025-00973-x) scores from chemically dissimilar ligands and applied to Smina-generated poses, achieved docking power comparable to or exceeding that of the four SOTA end-to-end ML docking tools (DeepDock, Interformer, SurfDock, and Uni-Mol Docking v.2).
 
 
 ## Workflow
