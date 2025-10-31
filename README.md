@@ -62,6 +62,8 @@ Installation of [GNINA 1.3](https://github.com/gnina/gnina)
 cd ~/
 git clone https://github.com/gnina/gnina.git
 cd gnina
+git fetch --tags
+git checkout v1.3.2  
 mkdir build && cd build
 cmake ..
 make -j$(nproc)
