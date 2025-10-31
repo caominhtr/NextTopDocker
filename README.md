@@ -3,14 +3,14 @@
 
 NextTopDocker, a largest-scale, up-to-date (as of May 2025), and fully open-access data set of 19,239 PDB-derived protein-ligand complexes, split into 14,038 training and 5,201 test entries via a strict cold-ligand strategy, together with nine ligand-similarity-aware training subsets, provides a challenging, diverse, and reproducible foundation for evaluating pose generation and docking performance. 
 
-On this benchmark dataset, our simple logistic regression models (**LogReg (x%)**), trained on Smina and GNINA 1.3 scores from chemically dissimilar ligands and applied to Smina-generated poses, achieved docking power comparable to or exceeding that of the four SOTA end-to-end ML docking tools (DeepDock, Interformer, SurfDock, and Uni-Mol Docking v.2).
+On this benchmark dataset, our simple logistic regression models, **LogReg (x%)**, trained on Smina and GNINA 1.3 scores from chemically dissimilar ligands and applied to Smina-generated poses, achieved docking power comparable to or exceeding that of the four SOTA end-to-end ML docking tools (DeepDock, Interformer, SurfDock, and Uni-Mol Docking v.2).
 
 
 ## Workflow
 ![](LogRegSminaGNINA_figure1.png)
 
 ## Dataset
-Inside `Data/` folder, you will find:
+Inside `Data/` directory, you will find:
 - `NextTopDocker_ID/`: This folder contains PDB IDs of 14,038 and 5,201 test entries via a strict cold-ligand strategy, PDB IDs in each nine ligand-similarity-aware training subsets, and also 5-fold cross validation IDs, which also followed a cold-ligand splitting.
 - `Cold_model_ID/` : This folder contains PDB IDs of each cold-model test subsets.
 - `Init_data/`: This folder contains information about each entry in initial NextTopDocker dataset and poses in training and test set. `Code_experimental.ipynb` contains code to develop 10 LogReg (x%) models and to calculate DP of each tool.
@@ -44,7 +44,7 @@ conda activate NextTopDocker
 To perform docking using our LogReg (x%) model, the following steps should be followed:
 
 ### Step 1: Input preparation
-In each entry folder, three files should be prepared: (1) `{ID}_ligand`, the ligand you want to dock; (2) `{ID}_protein`, the template protein; and (3) `{ID}_ref`, the crystal ligand of your protein. In case redocking, the `{ID}_ref` and `{ID}_ligand` must be exactly the same. All three files can be provided in any format, but we recommend using the `MOL2` format. In particular, `{ID}_protein` should be prepared using ChimeraX’s DockPrep tool and saved in `MOL2` format.
+In each entry folder, three files should be prepared: (1) `{ID}_ligand`, the ligand you want to dock; (2) `{ID}_protein`, the template protein; and (3) `{ID}_ref`, the crystal ligand of your protein. In case of redocking, the `{ID}_ref` and `{ID}_ligand` must be exactly the same. All three files can be provided in any format, but we recommend using the `MOL2` format. In particular, `{ID}_protein` should be prepared using ChimeraX’s DockPrep tool and saved in `MOL2` format.
 
 Note that we use 4 grid boxes centered at the centroid of the co-crystal ligand with different volumes, ensuring that the search space was not dependent on the size or the experimentally solved orientation of the co-crystallized ligand. In doing so, we avoided the bias introduced by the more conventional search-space definition, where a fixed distance is added around each heavy atom of the crystallographic conformation.
 
@@ -64,9 +64,7 @@ example/
 ### Step 2: Perform docking and pose selection with LogReg (x%) model
 Redocking or docking new ligands can be easily performed as follows:
 ```
-chmod +x smina
-chmod +x gnina
-chmod +x NextTopDocker.sh
+chmod +x ./*
 ./NextTopDocker.sh
 ```
 Enter choice to specify tasks you want to do: `1` (perform docking from the beginning and scoring) or `2` (only scoring, in case you already had docking results but you want to use different models for pose selection)
