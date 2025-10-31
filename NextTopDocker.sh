@@ -76,7 +76,7 @@ case $choice in
 	len=$(wc -l ./example/temp.csv | awk '{print $1}')
 
 	while IFS=, read -r ID ligand protein ref; do		
-		mkdir -p example/${ID}/smina_result
+		mkdir example/${ID}/smina_result
 		for size in 10 20 30 40; do
 			./smina -r "$protein" -l "$ligand" \
 			      --autobox_ligand "$ref" \
@@ -84,7 +84,7 @@ case $choice in
 			      --exhaustiveness 8 --num_modes 20 --seed 30602001 \
 			      -o "example/${ID}/${ID}_ligand_${size}.mol2" > "example/${ID}/${ID}_ligand_${size}.txt"    2>/dev/null
 
-			mkdir -p "example/${ID}/split${size}"
+			mkdir "example/${ID}/split${size}"
 
 			awk -v prefix="example/${ID}/split${size}/${ID}_ligand_${size}_" '/^@<TRIPOS>MOLECULE/ {i++; fname = prefix sprintf("%02d", i) ".mol2"} {print > fname}' "example/${ID}/${ID}_ligand_${size}.mol2"
 
@@ -103,14 +103,14 @@ case $choice in
 	stt=1
 
 	while IFS=, read -r ID ligand protein ref; do
-		mkdir -p example/${ID}/gnina_result
+		mkdir example/${ID}/gnina_result
 		
 		find example/${ID}/smina_result -type f -path "*/split*/*.mol2" | sort >> example/${ID}/${ID}_temp.csv
 		
 		while read pose; do
 			pose_base=$(basename $pose)
 			pose_name=${pose_base%.mol2}
-			./gnina -l $pose -r $protein --score_only > example/${ID}/gnina_result/${pose_name}_gnina.txt 2>/dev/null
+			gnina -l $pose -r $protein --score_only > example/${ID}/gnina_result/${pose_name}_gnina.txt 2>/dev/null
 		done < example/${ID}/${ID}_temp.csv
 		
 		echo "$stt/$len"
@@ -160,7 +160,7 @@ case $choice in
 
 	rm -rf ./example/*/*_temp.csv
 
-	mkdir -p example/result
+	mkdir example/result
 	mv -f example/*_score.csv example/result
 	
 	merge_file="example/result/3_merged_score.csv"
