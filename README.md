@@ -45,7 +45,7 @@ sudo apt install nvidia-cuda-toolkit
 #Check
 nvidia-smi
 #Or
-nvcc-version
+nvcc --version
 ```
 Installation of NextTopDocker environment
 ```
