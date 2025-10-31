@@ -50,6 +50,7 @@ nvcc-version
 ```
 Installation of NextTopDocker environment
 ```
+cd ~/
 git clone https://github.com/caominhtr/NextTopDocker.git
 cd NextTopDocker
 conda env create -f NextTopDocker-env.yaml
