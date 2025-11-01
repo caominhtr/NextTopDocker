@@ -19,13 +19,14 @@ All the dataset used to reproduce the results from our paper can be found in: **
 
 Example of folder entry with PDB ID 1A28 in NextTopDocker dataset:
 ```
-./NextTopDocker/1A28/
-├── 1A28_ligand.mol2                 #ligand in mol2 format
-├── 1A28_ligand.sdf                  #ligand in sdf format
-├── 1A28_protein_posebuster.pdb      #target used to run PoseBuster
-├── 1A28_receptor_dockprep.mol2      #target used to run Smina
-├── gnina_result/                    #contains gnina 1.3 CNN rescores on Smina-generated poses
-└── smina_result/                    #contains poses by Smina, both in .sdf and .mol2 format
+NextTopDocker/1A28/
+├── 1A28_ligand.mol2                #ligand in mol2 format
+├── 1A28_ligand.sdf                 #ligand in sdf format
+├── 1A28_original_complex.pdb       #Original complex pdb file (remove UNX, UNL)
+├── 1A28_protein_posebuster.pdb     #target used to run PoseBuste
+├── 1A28_receptor_dockprep.mol2     #target used to run Smina
+├── gnina_result                    #contains gnina 1.3 CNN rescores on Smina-generated poses
+└── smina_result                    #contains poses by Smina, both in .sdf and .mol2 format
 ```
 
 
