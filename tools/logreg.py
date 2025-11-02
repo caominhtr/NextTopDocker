@@ -12,13 +12,13 @@ num_models = [int(x) for x in sys.argv[1:-2]]
 merge_file = sys.argv[-2]
 output_file = sys.argv[-1]
 
-base_dir = os.path.dirname(__file__)
-
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 if not all(10 <= x <= 100 and x % 10 == 0 for x in num_models):
     raise ValueError("Please provide a valid model")
 else:
-    with open(os.path.join(base_dir, "model", "threshold.pkl"), "rb") as f:
+    threshold_path = os.path.join(base_dir,"model", "threshold.pkl")
+    with open(threshold_path, "rb") as f:
         threshold = pickle.load(f)
 
     df = pd.read_csv(merge_file, header=None)
@@ -26,10 +26,13 @@ else:
     df = df.dropna()
 
     for num_model in num_models:
-
-        with open(os.path.join(base_dir, "model", f"LogReg{num_model}.pkl"), "rb") as f:
+        model_path = os.path.join(base_dir, "model", f"LogReg{num_model}.pkl")
+        scaler_path = os.path.join(base_dir, "scale", f"scaler_{num_model}.pkl")
+        
+        with open(model_path, "rb") as f:
             model = pickle.load(f)
-        with open(os.path.join(base_dir, "scale", f"scaler_{num_model}.pkl"), "rb") as f:
+
+        with open(scaler_path, "rb") as f:
             scale = pickle.load(f)
 
         thres = threshold[int(num_model / 10 - 1)]
