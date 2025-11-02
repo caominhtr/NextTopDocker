@@ -76,21 +76,31 @@ sudo make install
 To perform docking using our LogReg (x%) model, the following steps should be followed:
 
 ### Step 1: Input preparation
-In each entry folder, three files should be prepared: (1) `{ID}_ligand`, the ligand you want to dock; (2) `{ID}_protein`, the template protein; and (3) `{ID}_ref`, the crystal ligand of your protein. In case of redocking, the `{ID}_ref` and `{ID}_ligand` must be exactly the same. All three files can be provided in any format, but we recommend using the `MOL2` format. In particular, `{ID}_protein` should be prepared using ChimeraX’s DockPrep tool and saved in `MOL2` format.
+**(Re)-Docking**
+
+ In each entry folder, three files should be prepared: (1) `{ID}_ligand`, the ligand you want to dock; (2) `{ID}_protein`, the template protein; and (3) `{ID}_ref`, the crystal ligand of your protein. In case of redocking, the `{ID}_ref` and `{ID}_ligand` must be exactly the same. All three files can be provided in any format, but we recommend using the `MOL2` format. In particular, `{ID}_protein` should be prepared using ChimeraX’s DockPrep tool and saved in `MOL2` format.
 
 Note that we use 4 grid boxes centered at the centroid of the co-crystal ligand with different volumes, ensuring that the search space was not dependent on the size or the experimentally solved orientation of the co-crystallized ligand. In doing so, we avoided the bias introduced by the more conventional search-space definition, where a fixed distance is added around each heavy atom of the crystallographic conformation.
+
+**Scoring only**
+
+If you already have your ligand pose and you only want to rescore them with our model, only `{ID}_protein` and `{ID}_posexx` (e.g., `{ID}_pose1`, `{ID}_pose2`,...) are needed. Note that output score of NextTopDocker is the probability of one pose to be near-native (RMSD≤2).
 
 Here is an example of input preparation:
 ```
 example/
 ├── 1A28
-│   ├── 1A28_ligand.mol2        #ligand you want to dock
+│   ├── 1A28_ligand.mol2        #ligand that you want to dock
 │   ├── 1A28_protein.mol2       #template structure
-│   └── 1A28_ref.mol2           #must be the same as _ligand.mol2 in case of re-docking
+│   ├── 1A28_ref.mol2           #must be the same as _ligand.mol2 in case of re-docking
+│   ├── 1A28_pose1.mol2         #only needed if you want to rescore this pose with our model
+│   └── 1A28_pose2.mol2         #only needed if you want to rescore this pose with our model
 └── 2W3K
     ├── 2W3K_ligand.mol2
-    ├── 2W3K_protein.mol2    
-    └── 2W3K_ref.mol2          
+    ├── 2W3K_pose1.mol2
+    ├── 2W3K_protein.mol2
+    └── 2W3K_ref.mol2
+       
 ```
 
 ### Step 2: Perform docking and pose selection with LogReg (x%) model
@@ -100,20 +110,31 @@ cd ~/NextTopDocker
 chmod +x ./*
 ./NextTopDocker.sh
 ```
-Enter choice to specify tasks you want to do: `1` (perform docking from the beginning and scoring) or `2` (only scoring, in case you already had docking results but you want to use different models for pose selection)
+Enter choice to specify tasks you want to do: `1` (perform docking from the beginning and scoring) or `2` (Scoring only, in case you already had docking poses and you want to use our models to rescore them)
+
+Enter output directory path (e.g.,`example/result`)
 
 Enter model numbers that you want to use: `10` to `100`, separated by spaces. You can choose more than 1 model.
 
 
-Examples: Use model LogReg (10%), LogReg (40%), LogReg (70%) for pose selections.
+**Example 1**: Use model LogReg (10%), LogReg (40%), LogReg (70%) for pose selections.
 ```
 ./NextTopDocker.sh
 1
+your_output_dir
+10 40 70
+```
+
+**Example 2**: Use model LogReg (10%), LogReg (40%), LogReg (70%) for to rescore poses.
+```
+./NextTopDocker.sh
+2
+your_output_dir
 10 40 70
 ```
 
 ### Step 3: Interpretation of results
-All output files will be stored in `example/result` directory. The final output file includes the Smina score, GNINA 1.3 CNN score, the probability of being near-native predicted by each model, and the corresponding label based on the decision threshold specified for each model.
+All output files will be stored in `your_output_dir` directory. The final output file includes the Smina score, GNINA 1.3 CNN score, the probability of being near-native predicted by each model, and the corresponding label based on the decision threshold specified for each model.
 
 ```
 ID,Pose,Smina,Gnina,Pred_10,Near-native_10,Pred_40,Near-native_40,Pred_70,Near-native_70
