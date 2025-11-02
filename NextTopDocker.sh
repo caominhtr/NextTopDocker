@@ -38,7 +38,6 @@ if [ -z "$outputdir" ]; then
     exit 1
 fi
 
-mkdir -p "$outputdir"
 
 case $choice in
     1)
@@ -77,6 +76,7 @@ case $choice in
 	    echo "$ID_base,$lig_path,$pro_path,$ref_path" >> "$temp_file"
 	done
 
+	mkdir -p "$outputdir"
 
 	#Smina posse sampling 
 	echo "Running SMINA docking..."
@@ -209,6 +209,8 @@ case $choice in
 	
 	temp_file="example/0_temp_score.csv"
 	> "$temp_file" 
+	
+	mkdir -p "$outputdir"
 
 	for ID in example/*; do
 	    [ -d "$ID" ] || continue
