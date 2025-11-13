@@ -140,6 +140,12 @@ All output files will be stored in `your_output_dir` directory. The final output
 ID,Pose,Smina,Gnina,Pred_10,Near-native_10,Pred_40,Near-native_40,Pred_70,Near-native_70
 ```
 
+## Interaction recovery rate
+To calculate interaction recovery rate between a docked ligand pose, three files must be prepared: (1)`protein.pdb`, (2)`crystal_ligand.sdf`, and (3) `redocked_ligand.sdf`. 
+
+```
+python tools/interaction_recovery_rate.py -p path/to/protein.pdb -x path/to/crystal_ligand.sdf -l path/to/redocked_ligand.sdf -o path/to/output_dir
+```
 
 ## Docking power evaluation on full test set (N=5,201)
 
