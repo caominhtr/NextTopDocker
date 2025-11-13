@@ -4,11 +4,23 @@ NextTopDocker, a largest-scale, up-to-date (as of May 2025), and fully open-acce
 
 On this benchmark dataset, our simple logistic regression models, **LogReg (x%)**, trained on [Smina](https://pubs.acs.org/doi/10.1021/ci300604z) and [GNINA 1.3](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-025-00973-x) scores from chemically dissimilar ligands and applied to Smina-generated poses, achieved docking power comparable to or exceeding that of the four SOTA end-to-end ML docking tools (DeepDock, Interformer, SurfDock, and Uni-Mol Docking v.2).
 
+## Table of Contents
+
+- [Dataset](#Dataset)
+- [Installation](#Installation)
+- [Running LogReg (x%)](#Running)
+- [Interaction recovery rate](#Interaction)
+- [Summary](#Summary)
+
+
+<a id="set-up"></a>
+
 
 ## Workflow
 ![](LogRegSminaGNINA_figure1.png)
 
 ## Dataset
+<a id="Dataset"></a>
 Inside `Data/` directory, you will find:
 - `NextTopDocker_ID/`: This folder contains PDB IDs of 14,038 and 5,201 test entries via a strict cold-ligand strategy, PDB IDs in each nine ligand-similarity-aware training subsets, and also 5-fold cross validation IDs, which also followed a cold-ligand splitting.
 - `Cold_model_ID/` : This folder contains PDB IDs of each cold-model test subsets.
@@ -31,7 +43,7 @@ NextTopDocker/1A28/
 
 
 ## Installation 
-
+<a id="Installation"></a>
 This code was tested with Python 3.12.12 on Ubuntu 24.04.3 LTS
 
 (Optional) System setup
@@ -73,6 +85,7 @@ sudo make install
 
 
 ## Running LogReg (x%) model
+<a id="Running"></a>
 To perform docking using our LogReg (x%) model, the following steps should be followed:
 
 ### Step 1: Input preparation
@@ -141,6 +154,7 @@ ID,Pose,Smina,Gnina,Pred_10,Near-native_10,Pred_40,Near-native_40,Pred_70,Near-n
 ```
 
 ## Interaction recovery rate
+<a id="Interaction"></a>
 To calculate interaction recovery rate between a docked ligand pose, three files must be prepared: (1)`protein.pdb`, (2)`crystal_ligand.sdf`, and (3) `redocked_ligand.sdf`. 
 
 ```
@@ -148,7 +162,7 @@ python tools/interaction_recovery_rate.py -p path/to/protein.pdb -x path/to/crys
 ```
 
 ## Docking power evaluation on full test set (N=5,201)
-
+<a id="Summary"></a>
 |Model | RMSD ≤ 2| RMSD ≤ 2 & PB-valid |
 |--| ------------ | --- | 
 |Smina| 62.74| 53.47 |
