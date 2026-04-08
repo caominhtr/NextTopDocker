@@ -1,1 +1,2 @@
 data/Cold_protein/TMscore_SeqID.zip filter=lfs diff=lfs merge=lfs -text
+data/Cold_GNINA/it2_redocked_tt_v1.3_completeset_train0.types filter=lfs diff=lfs merge=lfs -text
