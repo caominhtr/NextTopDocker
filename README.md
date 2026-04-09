@@ -26,6 +26,7 @@ Inside `Data/` directory, you will find:
 - `NextTopDocker_ID/`: This folder contains PDB IDs of 14,038 and 5,201 test entries via a strict cold-ligand strategy, PDB IDs in each nine ligand-similarity-aware training subsets, and also 5-fold cross validation IDs, which also followed a cold-ligand splitting.
 - `Cold_model_ID/` : This folder contains PDB IDs of each cold-model test subsets.
 - `Init_data/`: This folder contains information about each entry in initial NextTopDocker dataset and poses in training and test set. `Code_experimental.ipynb` contains code to develop 10 LogReg (x%) models and to calculate DP of each tool.
+- `Init_data/NextTopDocker_rawdata.csv`: This file contains raw data for all 19,239 entries, including SMILES strings, calculated physicochemical properties for ligands, protein classes, and entry information.
 - `Result_SOTA/`: This folder contains result summary of each SOTA docking tool.
 - `Cold_protein/`: This folder contains PDB IDs of "more stringent" ligand- and protein- similarity aware training subset.
 - `Cold_GNINA/`: This folder contains new test set with 4,860 entries after explicitly removing all test-set data associated with the GNINA 1.3 training corpus.
