@@ -1,4 +1,4 @@
-# NextTopDocker: the largest-to-date docking power benchmark reveals that deep learning performs generally much worse than logistic regression models
+# NextTopDocker: a large-scale docking-power benchmark reveals limitations of current end-to-end machine-learning docking and the strength of hybrid rescoring
 [![DOI](https://zenodo.org/badge/DOI/10.48550/arXiv.2512.16424.svg)](https://chemrxiv.org/doi/full/10.26434/chemrxiv.10001776/v1)
 
 NextTopDocker, a largest-scale, up-to-date (as of May 2025), and fully open-access data set of 19,239 PDB-derived protein-ligand complexes, split into 14,038 training and 5,201 test entries via a strict cold-ligand strategy, together with nine ligand-similarity-aware training subsets, provides a challenging, diverse, and reproducible foundation for evaluating pose generation and docking performance. 
