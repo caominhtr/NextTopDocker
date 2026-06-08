@@ -18,7 +18,7 @@ On this benchmark dataset, our simple logistic regression models, **LogReg (x%)*
 
 
 ## Workflow
-![](LogRegSminaGNINA_figure1.png)
+![](LogRegSminaGNINA_figure1_new.png)
 
 ## Dataset
 <a id="Dataset"></a>
