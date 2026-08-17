@@ -1,4 +1,4 @@
-# NextTopDocker: a large-scale docking-power benchmark reveals limitations of current end-to-end machine-learning docking and the strength of hybrid rescoring
+# NextTopDocker: A large-scale docking-power benchmark reveals limitations of current end-to-end machine-learning docking and the strength of hybrid rescoring
 
 This repository contains the source code presenting in our the study:
 > **NextTopDocker: A Large-Scale Docking-Power Benchmark Reveals Limitations of Current End-to-End Machine-Learning Docking and the Strength of Hybrid Rescoring**  
