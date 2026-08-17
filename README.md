@@ -1,5 +1,10 @@
 # NextTopDocker: a large-scale docking-power benchmark reveals limitations of current end-to-end machine-learning docking and the strength of hybrid rescoring
-[![DOI](https://zenodo.org/badge/DOI/10.48550/arXiv.2512.16424.svg)](https://chemrxiv.org/doi/full/10.26434/chemrxiv.10001776/v1)
+
+This repository contains the source code presenting in our the study:
+> **NextTopDocker: A Large-Scale Docking-Power Benchmark Reveals Limitations of Current End-to-End Machine-Learning Docking and the Strength of Hybrid Rescoring**  
+> *Journal of Medicinal Chemistry* (2026). DOI: [10.1021/acs.jmedchem.6c01143](https://doi.org/10.1021/acs.jmedchem.6c01143)
+
+---
 
 NextTopDocker, a largest-scale, up-to-date (as of May 2025), and fully open-access data set of 19,239 PDB-derived protein-ligand complexes, split into 14,038 training and 5,201 test entries via a strict cold-ligand strategy, together with nine ligand-similarity-aware training subsets, provides a challenging, diverse, and reproducible foundation for evaluating pose generation and docking performance. 
 
