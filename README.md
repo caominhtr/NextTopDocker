@@ -1,6 +1,6 @@
 # NextTopDocker: A large-scale docking-power benchmark reveals limitations of current end-to-end machine-learning docking and the strength of hybrid rescoring
 
-This repository contains the source code presenting in our the study:
+This repository contains the source code presenting in our study:
 > **NextTopDocker: A Large-Scale Docking-Power Benchmark Reveals Limitations of Current End-to-End Machine-Learning Docking and the Strength of Hybrid Rescoring**  
 > *Journal of Medicinal Chemistry* (2026). DOI: [10.1021/acs.jmedchem.6c01143](https://doi.org/10.1021/acs.jmedchem.6c01143)
 
