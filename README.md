@@ -2,7 +2,7 @@
 
 This repository contains the data and source code presented in our study:
 > **NextTopDocker: A Large-Scale Docking-Power Benchmark Reveals Limitations of Current End-to-End Machine-Learning Docking and the Strength of Hybrid Rescoring**  
-> *Journal of Medicinal Chemistry* (2026), 69(16):19808–19821.DOI: [10.1021/acs.jmedchem.6c01143](https://doi.org/10.1021/acs.jmedchem.6c01143)
+> *Journal of Medicinal Chemistry* (2026), 69(16):19808–19821. DOI: [10.1021/acs.jmedchem.6c01143](https://doi.org/10.1021/acs.jmedchem.6c01143)
 
 ---
 
