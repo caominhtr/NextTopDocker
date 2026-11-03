@@ -194,7 +194,7 @@ python tools/interaction_recovery_rate.py -p path/to/protein.pdb -x path/to/crys
 
 ## Contact
 For further queries, please contact: 
-- Cao-Minh Truong (cao-minh.truong@etu.u-paris.fr, caominh.truong0306@gmail.com)
+- Cao-Minh Truong (cao-minh.truong@u-pariscite.fr)
 - Dr. Viet-Khoa Tran-Nguyen (viet-khoa.tran-nguyen@u-paris.fr)
 - Pr. Olivier Taboureau (olivier.taboureau@u-paris.fr)
 
